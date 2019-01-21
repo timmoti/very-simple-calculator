@@ -186,3 +186,31 @@ describe('make divisions', () => {
     ).toEqual(-0.00003472222222222222);
   });
 });
+
+describe('factorial calculations', () => {
+  test('should return 24 with a value of 4', () => {
+    expect(calculator.factorial(4)).toEqual(24);
+  });
+
+  test('should return 1 with 0', () => {
+    expect(calculator.factorial(0)).toEqual(1);
+  });
+
+  test('should not be able to process negative non-integer numbers', () => {
+    function negativeNonInteger() {
+      calculator.factorial(-3.2);
+    }
+    expect(negativeNonInteger).toThrowError(
+      'Only positive integers are allowed'
+    );
+  });
+
+  test('should not be able to process positive non-integer numbers', () => {
+    function positiveNonInteger() {
+      calculator.factorial(3.2);
+    }
+    expect(positiveNonInteger).toThrowError(
+      'Only positive integers are allowed'
+    );
+  });
+});

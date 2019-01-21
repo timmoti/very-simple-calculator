@@ -25,4 +25,25 @@ module.exports = class Calculator {
     this.result = (this.result * 1000) / (value * 1000);
     return this;
   }
+
+  // factorial() {
+  //   let currentValue = 1;
+  //   let factor = this.result;
+  //   while (currentValue != factor) {
+  //     this.result = currentValue.this.multiply(currentValue + 1);
+  //     currentValue++;
+  //   }
+  //   return this;
+  // }
+
+  factorial(value) {
+    if (value % 1 !== 0 || value < 0) {
+      throw new Error('Only positive integers are allowed');
+    }
+    if (value === 0) {
+      return 1;
+    } else {
+      return this.factorial(value - 1) * value;
+    }
+  }
 };
