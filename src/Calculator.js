@@ -26,16 +26,6 @@ module.exports = class Calculator {
     return this;
   }
 
-  // factorial() {
-  //   let currentValue = 1;
-  //   let factor = this.result;
-  //   while (currentValue != factor) {
-  //     this.result = currentValue.this.multiply(currentValue + 1);
-  //     currentValue++;
-  //   }
-  //   return this;
-  // }
-
   factorial(value) {
     if (value % 1 !== 0 || value < 0) {
       throw new Error('Only positive integers are allowed');
