@@ -87,6 +87,48 @@ describe('make subtractions', () => {
 
 describe('make multiplications', () => {
   test('between 2 positive numbers', () => {
-    expect(calculator.multiply(0.4)).toEqual(0.04);
+    expect(calculator.multiply(0.4).result).toEqual(0.04);
+  });
+
+  test('between 3 positive numbers', () => {
+    expect(calculator.multiply(4.62).multiply(0.02).result).toEqual(0.00924);
+  });
+
+  test('between 1 positive and 1 negative number', () => {
+    expect(calculator.multiply(-0.1234).result).toEqual(-0.01234);
+  });
+
+  test('between 4 negative numbers', () => {
+    calculator = new Calculator(-0.1);
+    expect(
+      calculator
+        .multiply(-0.001)
+        .multiply(-0.0001)
+        .multiply(-0.00001).result
+    ).toEqual(1e-13);
+  });
+
+  test('in a chain with additions and subtractions', () => {
+    expect(
+      calculator
+        .add(1)
+        .subtract(0.6)
+        .multiply(-1.4).result
+    ).toEqual(-0.7);
+  });
+
+  test('between 10 numbers', () => {
+    expect(
+      calculator
+        .multiply(-5)
+        .multiply(-4)
+        .multiply(-3)
+        .multiply(-2)
+        .multiply(-1)
+        .multiply(0)
+        .multiply(1)
+        .multiply(2)
+        .multiply(3).result
+    ).toEqual(0);
   });
 });
