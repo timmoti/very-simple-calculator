@@ -132,3 +132,57 @@ describe('make multiplications', () => {
     ).toEqual(0);
   });
 });
+
+describe('make divisions', () => {
+  test('between 2 positive numbers', () => {
+    expect(calculator.divide(0.4).result).toEqual(0.25);
+  });
+
+  test('between 3 positive numbers', () => {
+    expect(calculator.divide(4.62).divide(0.02).result).toEqual(
+      1.0822510822510822
+    );
+  });
+
+  test('between 1 positive and 1 negative number', () => {
+    expect(calculator.divide(-0.1234).result).toEqual(-0.8103727714748785);
+  });
+
+  test('between 4 negative numbers', () => {
+    calculator = new Calculator(-0.1);
+    expect(
+      calculator
+        .divide(-0.001)
+        .divide(-0.0001)
+        .divide(-0.00001).result
+    ).toEqual(100000000000);
+  });
+
+  test('in a chain with additions and subtractions and multiplications', () => {
+    expect(
+      calculator
+        .add(1)
+        .subtract(0.6)
+        .multiply(-1.4)
+        .divide(5).result
+    ).toEqual(-0.14);
+  });
+
+  test('divide by 0', () => {
+    expect(calculator.divide(0).result).toEqual(Infinity);
+  });
+  test('between 10 numbers', () => {
+    expect(
+      calculator
+        .divide(-5)
+        .divide(-4)
+        .divide(-3)
+        .divide(-2)
+        .divide(-1)
+        .divide(1)
+        .divide(2)
+        .divide(3)
+        .divide(4).result
+    ).toEqual(-0.00003472222222222222);
+  });
+});

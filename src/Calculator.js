@@ -20,4 +20,9 @@ module.exports = class Calculator {
     }
     return this;
   }
+
+  divide(value) {
+    this.result = (this.result * 1000) / (value * 1000);
+    return this;
+  }
 };
