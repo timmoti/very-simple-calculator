@@ -46,6 +46,6 @@ while (symbol !== 'AC') {
         console.log('Unacceptable input');
     }
   } catch (error) {
-    console.log(error);
+    console.log(`Error: ${error}`);
   }
 }
