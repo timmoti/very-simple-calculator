@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "private": true,
   "scripts": {
+    "start": "node server.js",
+    "start:nodemon": "nodemon server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -12,9 +15,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "supertest": "^3.4.1"
   },
   "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
     "readline-sync": "^1.4.9"
   }
 }
