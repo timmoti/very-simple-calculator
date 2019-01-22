@@ -145,7 +145,7 @@ describe('make divisions', () => {
   });
 
   test('between 1 positive and 1 negative number', () => {
-    expect(calculator.divide(-0.1234).result).toEqual(-0.8103727714748785);
+    expect(calculator.divide(-0.1234).result).toEqual(-0.8103727714748784);
   });
 
   test('between 4 negative numbers', () => {
@@ -183,7 +183,7 @@ describe('make divisions', () => {
         .divide(2)
         .divide(3)
         .divide(4).result
-    ).toEqual(-0.00003472222222222222);
+    ).toEqual(-0.00003472222222222223);
   });
 });
 

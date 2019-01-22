@@ -22,7 +22,7 @@ module.exports = class Calculator {
   }
 
   divide(value) {
-    this.result = (this.result * 1000) / (value * 1000);
+    this.result = (this.result * 100000) / (value * 100000);
     return this;
   }
 
