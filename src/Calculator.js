@@ -8,7 +8,7 @@ module.exports = class Calculator {
     return this;
   }
 
-  subtract(value) {
+  minus(value) {
     this.result = (this.result * 1000 - value * 1000) / 1000;
     return this;
   }
@@ -26,14 +26,14 @@ module.exports = class Calculator {
     return this;
   }
 
-  factorial(value) {
-    if (value % 1 !== 0 || value < 0) {
+  factorial() {
+    if (this.result % 1 !== 0 || this.result < 0) {
       throw new Error('Only positive integers are allowed');
     }
-    if (value === 0) {
+    if (this.result === 0) {
       return 1;
     } else {
-      return this.factorial(value - 1) * value;
+      return new Calculator(this.result - 1).factorial() * this.result;
     }
   }
 };

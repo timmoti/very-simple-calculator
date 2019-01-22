@@ -44,43 +44,43 @@ describe('make additions', () => {
 
 describe('make subtractions', () => {
   test('between 2 positive numbers', () => {
-    expect(calculator.subtract(0.1).result).toEqual(0);
+    expect(calculator.minus(0.1).result).toEqual(0);
   });
 
   test('between 3 positive numbers', () => {
-    expect(calculator.subtract(0.1).subtract(0.2).result).toEqual(-0.2);
+    expect(calculator.minus(0.1).minus(0.2).result).toEqual(-0.2);
   });
 
   test('between 1 positive and 1 negative number', () => {
-    expect(calculator.subtract(-0.1).result).toEqual(0.2);
+    expect(calculator.minus(-0.1).result).toEqual(0.2);
   });
 
   test('between 4 negative numbers', () => {
     calculator = new Calculator(-0.1);
     expect(
       calculator
-        .subtract(-0.001)
-        .subtract(-0.0001)
-        .subtract(-0.00001).result
+        .minus(-0.001)
+        .minus(-0.0001)
+        .minus(-0.00001).result
     ).toEqual(-0.09889);
   });
 
   test('in a chain with additions', () => {
-    expect(calculator.add(1).subtract(0.6).result).toEqual(0.5);
+    expect(calculator.add(1).minus(0.6).result).toEqual(0.5);
   });
 
   test('between 10 numbers', () => {
     expect(
       calculator
-        .subtract(-5)
-        .subtract(-4)
-        .subtract(-3)
-        .subtract(-2)
-        .subtract(-1)
-        .subtract(0)
-        .subtract(1)
-        .subtract(2)
-        .subtract(3).result
+        .minus(-5)
+        .minus(-4)
+        .minus(-3)
+        .minus(-2)
+        .minus(-1)
+        .minus(0)
+        .minus(1)
+        .minus(2)
+        .minus(3).result
     ).toEqual(9.1);
   });
 });
@@ -108,11 +108,11 @@ describe('make multiplications', () => {
     ).toEqual(1e-13);
   });
 
-  test('in a chain with additions and subtractions', () => {
+  test('in a chain with additions and minusions', () => {
     expect(
       calculator
         .add(1)
-        .subtract(0.6)
+        .minus(0.6)
         .multiply(-1.4).result
     ).toEqual(-0.7);
   });
@@ -158,11 +158,11 @@ describe('make divisions', () => {
     ).toEqual(100000000000);
   });
 
-  test('in a chain with additions and subtractions and multiplications', () => {
+  test('in a chain with additions and minusions and multiplications', () => {
     expect(
       calculator
         .add(1)
-        .subtract(0.6)
+        .minus(0.6)
         .multiply(-1.4)
         .divide(5).result
     ).toEqual(-0.14);
@@ -189,11 +189,13 @@ describe('make divisions', () => {
 
 describe('factorial calculations', () => {
   test('should return 24 with a value of 4', () => {
-    expect(calculator.factorial(4)).toEqual(24);
+    calculator = new Calculator(4);
+    expect(calculator.factorial()).toEqual(24);
   });
 
   test('should return 1 with 0', () => {
-    expect(calculator.factorial(0)).toEqual(1);
+    calculator = new Calculator(0);
+    expect(calculator.factorial()).toEqual(1);
   });
 
   test('should not be able to process negative non-integer numbers', () => {
