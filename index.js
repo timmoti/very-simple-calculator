@@ -38,12 +38,13 @@ while (symbol !== 'AC') {
       case '!':
         result = calculator.factorial();
         console.log(`Current Result: ${result}`);
+        calculator = new Calculator(result);
         break;
       case 'AC':
-        console.log('All results cleared, Goodbye!');
+        console.log('All results cleared, goodbye!');
         break;
       default:
-        console.log('Unacceptable input');
+        console.log('Input valid operation, please.');
     }
   } catch (error) {
     console.log(`Error: ${error}`);
