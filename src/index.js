@@ -1,4 +1,4 @@
-const Calculator = require('./src/Calculator');
+const Calculator = require('./Calculator');
 const readlineSync = require('readline-sync');
 
 console.log('Welcome to a Very Simple Calculator');
